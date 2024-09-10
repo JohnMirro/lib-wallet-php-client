@@ -66,6 +66,7 @@ class Paysera_WalletApi_Entity_Search_Result implements IteratorAggregate
      *
      * @return Traversable
      */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new ArrayIterator($this->getResultList());
