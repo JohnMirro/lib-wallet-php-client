@@ -55,7 +55,7 @@ class Paysera_WalletApi_Util_RequestInfo
                 }
             }
             if (count($queryParameters) > 0) {
-                $query = '?' . http_build_query($queryParameters, null, '&');
+                $query = '?' . http_build_query($queryParameters, "", '&');
             } else {
                 $query = '';
             }

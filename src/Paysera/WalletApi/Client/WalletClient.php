@@ -500,7 +500,7 @@ class Paysera_WalletApi_Client_WalletClient extends Paysera_WalletApi_Client_Bas
     {
         Paysera_WalletApi_Util_Assert::isId($walletId);
         if ($filter !== null) {
-            $query = '?' . http_build_query($this->mapper->encodeStatementFilter($filter), null, '&');
+            $query = '?' . http_build_query($this->mapper->encodeStatementFilter($filter), "", '&');
         } else {
             $query = '';
         }
@@ -520,7 +520,7 @@ class Paysera_WalletApi_Client_WalletClient extends Paysera_WalletApi_Client_Bas
      */
     public function getWalletBy(array $parameters)
     {
-        $responseData = $this->get('wallet?' . http_build_query($parameters, null, '&'));
+        $responseData = $this->get('wallet?' . http_build_query($parameters, "", '&'));
         return $this->mapper->decodeWallet($responseData);
     }
 
@@ -564,7 +564,7 @@ class Paysera_WalletApi_Client_WalletClient extends Paysera_WalletApi_Client_Bas
         if (count($phone) > 0) {
             $parameters[$private ? 'phone_hash' : 'phone'] = implode(',', $phone);
         }
-        $responseData = $this->get('wallets?' . http_build_query($parameters, null, '&'));
+        $responseData = $this->get('wallets?' . http_build_query($parameters, "", '&'));
 
         $result = array();
         foreach ($responseData as $key => $walletData) {
@@ -645,7 +645,7 @@ class Paysera_WalletApi_Client_WalletClient extends Paysera_WalletApi_Client_Bas
      */
     public function getWalletBarcodeBy(array $parameters)
     {
-        $responseData = $this->get('wallet/barcode?' . http_build_query($parameters, null, '&'));
+        $responseData = $this->get('wallet/barcode?' . http_build_query($parameters, "", '&'));
         return $responseData['barcode'];
     }
 
@@ -777,7 +777,7 @@ class Paysera_WalletApi_Client_WalletClient extends Paysera_WalletApi_Client_Bas
         Paysera_WalletApi_Entity_Location_SearchFilter $filter = null
     ) {
         if ($filter !== null) {
-            $query = '?' . http_build_query($this->mapper->encodeLocationFilter($filter), null, '&');
+            $query = '?' . http_build_query($this->mapper->encodeLocationFilter($filter), "", '&');
         } else {
             $query = '';
         }
@@ -801,7 +801,7 @@ class Paysera_WalletApi_Client_WalletClient extends Paysera_WalletApi_Client_Bas
     public function getLocations(Paysera_WalletApi_Entity_Location_SearchFilter $filter = null)
     {
         if ($filter !== null) {
-            $query = '?' . http_build_query($this->mapper->encodeLocationFilter($filter), null, '&');
+            $query = '?' . http_build_query($this->mapper->encodeLocationFilter($filter), "", '&');
         } else {
             $query = '';
         }
@@ -818,7 +818,7 @@ class Paysera_WalletApi_Client_WalletClient extends Paysera_WalletApi_Client_Bas
      */
     public function getLocationPayCategories($locale)
     {
-        $query = '?' . http_build_query(array('locale' => $locale), null, '&');
+        $query = '?' . http_build_query(array('locale' => $locale), "", '&');
 
         return $this->mapper->decodeLocationPayCategories(
             $this->get('locations/pay-categories' . $query)
@@ -849,7 +849,7 @@ class Paysera_WalletApi_Client_WalletClient extends Paysera_WalletApi_Client_Bas
      */
     public function getClients(Paysera_WalletApi_Entity_Client_SearchFilter $filter)
     {
-        $query = '?' . http_build_query($this->mapper->encodeClientFilter($filter), null, '&');
+        $query = '?' . http_build_query($this->mapper->encodeClientFilter($filter), "", '&');
 
          return $this->mapper->decodeClientSearchResult(
             $this->get('clients' . $query)
@@ -937,7 +937,7 @@ class Paysera_WalletApi_Client_WalletClient extends Paysera_WalletApi_Client_Bas
     {
         $query = http_build_query(
                 $this->mapper->encodeFilter($filter),
-                null,
+                "",
                 '&'
         );
 
@@ -977,7 +977,7 @@ class Paysera_WalletApi_Client_WalletClient extends Paysera_WalletApi_Client_Bas
     ) {
         $query = '?' . http_build_query(
             $this->mapper->encodeSufficientAmountRequest($sufficientAmountRequest),
-            null,
+            "",
             '&'
         );
 

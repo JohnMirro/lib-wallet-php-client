@@ -123,7 +123,7 @@ class Paysera_WalletApi_Client_OAuthClient extends Paysera_WalletApi_Client_Base
         return $this->makeRequest(new Paysera_WalletApi_Http_Request(
             $uri,
             Paysera_WalletApi_Http_Request::METHOD_POST,
-            $content === null ? '' : http_build_query($content, null, '&'),
+            $content === null ? '' : http_build_query($content, "", '&'),
             array('Content-Type' => Paysera_WalletApi_Http_Request::CONTENT_TYPE_URLENCODED)
         ), $options);
     }
@@ -143,7 +143,7 @@ class Paysera_WalletApi_Client_OAuthClient extends Paysera_WalletApi_Client_Base
         return $this->makeRequest(new Paysera_WalletApi_Http_Request(
             $uri,
             Paysera_WalletApi_Http_Request::METHOD_PUT,
-            $content === null ? '' : http_build_query($content, null, '&'),
+            $content === null ? '' : http_build_query($content, "", '&'),
             array('Content-Type' => Paysera_WalletApi_Http_Request::CONTENT_TYPE_URLENCODED)
         ), $options);
     }

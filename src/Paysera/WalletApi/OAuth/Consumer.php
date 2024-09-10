@@ -116,7 +116,7 @@ class Paysera_WalletApi_OAuth_Consumer
             $redirectUri = $this->getCurrentUri();
         }
         if ($userInformation === null) {
-            $query = http_build_query($this->getOAuthParameters($scopes, $redirectUri), null, '&');
+            $query = http_build_query($this->getOAuthParameters($scopes, $redirectUri), "", '&');
             return $this->router->getOAuthEndpoint($lang) . '?' . $query;
         } else {
             $parameters = $this->getOAuthParameters($scopes, $redirectUri);
@@ -142,7 +142,7 @@ class Paysera_WalletApi_OAuth_Consumer
         }
         $query = http_build_query(
             $this->getOAuthParameters($scopes, $redirectUri),
-            null,
+            "",
             '&'
         );
 
@@ -257,7 +257,7 @@ class Paysera_WalletApi_OAuth_Consumer
             'client_id'    => $this->clientId,
             'redirect_uri' => $redirectUri,
         );
-        $query = http_build_query($parameters, null, '&');
+        $query = http_build_query($parameters, "", '&');
         return $this->router->getRemindPasswordUri($userId, $lang) . '?' . $query;
     }
 
