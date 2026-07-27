@@ -208,7 +208,7 @@ class Paysera_WalletApi_Entity_Client_Host
             $regexpParts[] = 'https?://';
         }
 
-        $hostname = rtrim($this->getHost(), '/');
+        $hostname = rtrim((string) $this->getHost(), '/');
         if ($hostname) {
             $hostnameRegexp = preg_quote($hostname, '#');
             if ($this->isAnyPort()) {

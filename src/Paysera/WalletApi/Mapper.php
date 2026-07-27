@@ -131,7 +131,7 @@ class Paysera_WalletApi_Mapper
      */
     public function encodeFundsSource(Paysera_WalletApi_Entity_FundsSource $fundsSource)
     {
-        if (0 === strlen($fundsSource->getType()) && 0 === strlen($fundsSource->getDetails())) {
+        if (0 === strlen((string) $fundsSource->getType()) && 0 === strlen((string) $fundsSource->getDetails())) {
             throw new Paysera_WalletApi_Exception_LogicException("Funds source type or details required");
         }
 
@@ -141,7 +141,7 @@ class Paysera_WalletApi_Mapper
             $result['type'] = $fundsSource->getType();
         }
 
-        if (strlen($fundsSource->getDetails()) > 0) {
+        if (strlen((string) $fundsSource->getDetails()) > 0) {
             $result['details'] = $fundsSource->getDetails();
         }
 

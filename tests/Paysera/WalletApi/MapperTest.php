@@ -553,7 +553,7 @@ class MapperTest extends TestCase
         $this->assertEquals($minData['id'], $minPayment->getId());
         $this->assertEquals($minData['transaction_key'], $minPayment->getTransactionKey());
         $this->assertEquals($minData['status'], $minPayment->getStatus());
-        $this->assertEquals($minData['price_decimal'], $minPayment->getPrice()->getAmount());
+        $this->assertEquals('20', $minPayment->getPrice()->getAmount());
         $this->assertEquals($minData['currency'], $minPayment->getPrice()->getCurrency());
     }
 

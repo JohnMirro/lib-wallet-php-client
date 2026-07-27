@@ -16,13 +16,13 @@ class Paysera_WalletApi_Client_BasicClientTest extends TestCase
         $status,
         $content
     ) {
-        $webClient = $this->getMock('\Paysera_WalletApi_Http_ClientInterface', array('makeRequest'));
+        $webClient = $this->createMock('\Paysera_WalletApi_Http_ClientInterface');
         $webClient->expects($this->any())->method('makeRequest')->will($this->returnValue(
             new Paysera_WalletApi_Http_Response($status, array(), $content)
         ));
         $basicClient = new Paysera_WalletApi_Client_BasicClient(
             $webClient,
-            $this->getMock('\Paysera_WalletApi_EventDispatcher_EventDispatcher')
+            $this->createMock('\Paysera_WalletApi_EventDispatcher_EventDispatcher')
         );
 
         $this->expectException('\Paysera_WalletApi_Exception_ApiException');
