@@ -4,7 +4,9 @@
  * Date: 2014-02-25
  */
 
-class Paysera_WalletApi_Service_LocationManagerTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class Paysera_WalletApi_Service_LocationManagerTest extends TestCase
 {
     /**
      * @var Paysera_WalletApi_Service_LocationManager

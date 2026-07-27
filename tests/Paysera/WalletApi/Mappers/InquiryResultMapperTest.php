@@ -1,6 +1,8 @@
 <?php
 
-class InquiryResultMapperTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class InquiryResultMapperTest extends TestCase
 {
     private $inquiryResultMapper;
 

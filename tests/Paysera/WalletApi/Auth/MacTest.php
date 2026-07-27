@@ -1,6 +1,8 @@
 <?php
 
-class Paysera_WalletApi_Auth_MacTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class Paysera_WalletApi_Auth_MacTest extends TestCase
 {
     protected $service;
 

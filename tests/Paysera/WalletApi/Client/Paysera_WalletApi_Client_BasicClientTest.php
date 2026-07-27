@@ -1,6 +1,8 @@
 <?php
 
-class Paysera_WalletApi_Client_BasicClientTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class Paysera_WalletApi_Client_BasicClientTest extends TestCase
 {
     /**
      * @dataProvider test_makeRequest_correctly_handles_makeRequest_return_value_provider
@@ -23,7 +25,7 @@ class Paysera_WalletApi_Client_BasicClientTest extends PHPUnit_Framework_TestCas
             $this->getMock('\Paysera_WalletApi_EventDispatcher_EventDispatcher')
         );
 
-        $this->setExpectedException('\Paysera_WalletApi_Exception_ApiException');
+        $this->expectException('\Paysera_WalletApi_Exception_ApiException');
         $basicClient->makeRequest(
             new Paysera_WalletApi_Http_Request(
                 'http://example.com/',

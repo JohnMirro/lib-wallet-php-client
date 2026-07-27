@@ -1,6 +1,8 @@
 <?php
 
-class Paysera_WalletApi_Listener_InvalidResponseListenerTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class Paysera_WalletApi_Listener_InvalidResponseListenerTest extends TestCase
 {
 
     /**
@@ -87,7 +89,7 @@ class Paysera_WalletApi_Listener_InvalidResponseListenerTest extends PHPUnit_Fra
                 '
             )));
 
-        $this->setExpectedException('Paysera_WalletApi_Exception_ResponseException');
+        $this->expectException('Paysera_WalletApi_Exception_ResponseException');
         $this->service->makeRequest(new Paysera_WalletApi_Http_Request(''));
     }
 

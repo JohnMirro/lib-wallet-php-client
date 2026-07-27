@@ -109,7 +109,7 @@ class Paysera_WalletApi_OAuth_Consumer
     public function getAuthorizationUri(
         array $scopes = array(),
         $redirectUri = null,
-        Paysera_WalletApi_Entity_UserInformation $userInformation = null,
+        ?Paysera_WalletApi_Entity_UserInformation $userInformation = null,
         $lang = null
     ) {
         if ($redirectUri === null) {

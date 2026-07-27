@@ -44,8 +44,8 @@ class Paysera_WalletApi
     public function __construct(
         $clientId,
         $authentication,
-        Paysera_WalletApi_Util_Router $router = null,
-        Paysera_WalletApi_Container $container = null
+        ?Paysera_WalletApi_Util_Router $router = null,
+        ?Paysera_WalletApi_Container $container = null
     ) {
         if ($router === null) {
             $router = new Paysera_WalletApi_Util_Router();
@@ -149,7 +149,7 @@ class Paysera_WalletApi
      */
     public function basicClient(
         $basePath = null,
-        Paysera_WalletApi_Entity_MacAccessToken $token = null,
+        ?Paysera_WalletApi_Entity_MacAccessToken $token = null,
         array $parameters = array()
     ) {
         return $this->container->createBasicClient($this->dispatcher($basePath, $token, $parameters));
@@ -174,7 +174,7 @@ class Paysera_WalletApi
      */
     protected function dispatcher(
         $basePath = null,
-        Paysera_WalletApi_Entity_MacAccessToken $token = null,
+        ?Paysera_WalletApi_Entity_MacAccessToken $token = null,
         array $parameters = array()
     ) {
         $basePath = $this->router->getApiEndpoint($basePath);

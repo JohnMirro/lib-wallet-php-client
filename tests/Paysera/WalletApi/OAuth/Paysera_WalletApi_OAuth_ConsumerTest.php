@@ -1,6 +1,8 @@
 <?php
 
-class Paysera_WalletApi_OAuth_ConsumerTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class Paysera_WalletApi_OAuth_ConsumerTest extends TestCase
 {
     /**
      * @var Paysera_WalletApi_OAuth_Consumer

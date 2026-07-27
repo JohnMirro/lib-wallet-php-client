@@ -34,11 +34,11 @@ use Paysera_WalletApi_Entity_Wallet;
 use Paysera_WalletApi_Entity_Wallet_Account;
 use Paysera_WalletApi_Mapper;
 use Paysera_WalletApi_Mapper_IdentityMapper;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
 use Paysera_WalletApi_OAuth_Consumer;
 
-class MapperTest extends PHPUnit_Framework_TestCase
+class MapperTest extends TestCase
 {
     private $mapper;
 
@@ -54,7 +54,7 @@ class MapperTest extends PHPUnit_Framework_TestCase
     public function testDecodeAccessToken($data, $expectedException, $expectedResult)
     {
         if ($expectedException !== null) {
-            $this->setExpectedException($expectedException);
+            $this->expectException($expectedException);
         }
 
         $result = $this->mapper->decodeAccessToken($data);
@@ -118,7 +118,7 @@ class MapperTest extends PHPUnit_Framework_TestCase
     public function testEncodePayment($payment, $expectedOutput, $expectedException = null)
     {
         if ($expectedException !== null) {
-            $this->setExpectedException($expectedException);
+            $this->expectException($expectedException);
         }
 
         $result = $this->mapper->encodePayment($payment);
@@ -214,7 +214,7 @@ class MapperTest extends PHPUnit_Framework_TestCase
     public function testEncodeFundsSource($fundsSource, $expectedOutput, $expectedException = null)
     {
         if ($expectedException !== null) {
-            $this->setExpectedException($expectedException);
+            $this->expectException($expectedException);
         }
 
         $result = $this->mapper->encodeFundsSource($fundsSource);
@@ -357,7 +357,7 @@ class MapperTest extends PHPUnit_Framework_TestCase
     public function testEncodeProject($project, $expectedOutput, $expectedException = null)
     {
         if ($expectedException !== null) {
-            $this->setExpectedException($expectedException);
+            $this->expectException($expectedException);
         }
 
         $result = $this->mapper->encodeProject($project);
@@ -582,7 +582,10 @@ class MapperTest extends PHPUnit_Framework_TestCase
     public function testEncodeAllowance($allowance, $expectedOutput, $expectedException = null, $expectedExceptionMessage = null)
     {
         if ($expectedException !== null) {
-            $this->setExpectedException($expectedException, $expectedExceptionMessage);
+            $this->expectException($expectedException);
+            if ($expectedExceptionMessage !== null) {
+                $this->expectExceptionMessage($expectedExceptionMessage);
+            }
         }
 
         $result = $this->mapper->encodeAllowance($allowance);
@@ -1463,7 +1466,8 @@ class MapperTest extends PHPUnit_Framework_TestCase
     public function testEncodeClientPermissionsToWallet($input, $expected)
     {
         if ($expected instanceof Exception) {
-            self::setExpectedException(get_class($expected), $expected->getMessage());
+            self::expectException(get_class($expected));
+            self::expectExceptionMessage($expected->getMessage());
         }
         self::assertEquals($expected, $this->mapper->encodeClientPermissionsToWallet($input));
     }
@@ -1961,7 +1965,7 @@ class MapperTest extends PHPUnit_Framework_TestCase
     public function testDecodeTime($data, $expectedException, $expectedResult)
     {
         if ($expectedException !== null) {
-            $this->setExpectedException($expectedException);
+            $this->expectException($expectedException);
         }
 
         $result = $this->mapper->decodeTime($data);
