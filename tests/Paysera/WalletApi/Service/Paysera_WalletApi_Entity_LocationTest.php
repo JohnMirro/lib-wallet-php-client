@@ -13,7 +13,7 @@ class Paysera_WalletApi_Service_LocationManagerTest extends TestCase
      */
     protected $service;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->service = new Paysera_WalletApi_Service_LocationManager();
     }

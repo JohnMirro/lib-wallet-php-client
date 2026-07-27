@@ -14,7 +14,7 @@ class Paysera_WalletApi_Callback_SignCheckerTest extends TestCase
      */
     protected $webClient;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->webClient = $this->getMock('Paysera_WalletApi_Http_ClientInterface');
         $this->service = new Paysera_WalletApi_Callback_SignChecker('http://publickey.abc', $this->webClient);

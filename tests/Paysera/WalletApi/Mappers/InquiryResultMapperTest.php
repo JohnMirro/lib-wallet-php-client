@@ -6,7 +6,7 @@ class InquiryResultMapperTest extends TestCase
 {
     private $inquiryResultMapper;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->inquiryResultMapper = new \Paysera_WalletApi_Mapper_InquiryResultMapper(array(
             Paysera_WalletApi_Entity_Inquiry_InquiryItem::TYPE_USER_IDENTITY =>

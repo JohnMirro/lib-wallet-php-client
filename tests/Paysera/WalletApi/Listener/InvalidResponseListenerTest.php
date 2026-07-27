@@ -18,7 +18,7 @@ class Paysera_WalletApi_Listener_InvalidResponseListenerTest extends TestCase
     /**
      * Set up
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->webClient = $this->getMock('Paysera_WalletApi_Http_ClientInterface');
 

@@ -9,7 +9,7 @@ class Paysera_WalletApi_Auth_MacTest extends TestCase
     /** @var Paysera_WalletApi_Auth_Mac|PHPUnit_Framework_MockObject_MockObject */
     protected $mock;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->service = new Paysera_WalletApi_Auth_Mac('wkVd93h2uS', 'IrdTc8uQodU7PRpLzzLTW6wqZAO6tAMU');
 

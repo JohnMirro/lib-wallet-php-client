@@ -9,7 +9,7 @@ class Paysera_WalletApi_OAuth_ConsumerTest extends TestCase
      */
     private $consumer;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
